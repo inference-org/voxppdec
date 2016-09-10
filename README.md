@@ -17,4 +17,4 @@ usage :
 
 ```matlab
 >> run slsimvoxppdec.m
-``` matlab
+```

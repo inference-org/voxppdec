@@ -3,8 +3,8 @@
 voxppdec
 =========
 
-author : steeve laquitaine
-mail : steeve@stanford.edu
+author : steeve laquitaine  
+mail : steeve@stanford.edu  
 keywords : machine learning, Bayesian statistics, generative modeling of the data, reconstruction
 
 This small package uses a matrix of Ni response instance x Nv voxels and a vector of Ni stimulus feature (motion stimulus direction in deg) 

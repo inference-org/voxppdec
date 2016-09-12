@@ -28,8 +28,11 @@ fp0(2:Nv+1,1) = ones(Nv,1)*0.7 + 1.4*100;
 fp0(Nv+2) =  0.3 + 1.8*100;
 
 %options were tuned by trial and error
-options = optimset('maxIter',100000,'maxFunEvals',10000000,'TolFun',1,...
+% options = optimset('maxIter',100000,'maxFunEvals',10000000,'TolFun',1,...
+%     'TolX',1e-1,'PlotFcns',@optimplotfval);
+options = optimset('maxIter',1,'maxFunEvals',10,'TolFun',1,...
     'TolX',1e-1,'PlotFcns',@optimplotfval);
+
 
 %to record the logl per iterations
 global history; 

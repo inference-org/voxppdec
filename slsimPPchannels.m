@@ -20,6 +20,12 @@
 %              from mean response) between
 %              channels with same direction preference.
 %
+%    pp.phi_k: channel direction preferences e.g., 
+%              [45 90 135 180 225 270 315 360]';
+%
+% pp.exponent: exponent used to sharpen sinewave channels
+%
+%
 %outputs :
 %
 %           pp.f_k_s : matrix of 8 channels tuning functions
@@ -39,14 +45,12 @@
 %
 %ref : equation 8, Ruben S van Bergen et al., 2015, Nature Neuroscience
 
-function pp = slsimPPchannels(sigma)
+function pp = slsimPPchannels(sigma,pp)
 
 %stimulus direction space
 pp.s = 1:1:360;
 
-%assumed 8 tuning functions
-%with at least one at 180 deg
-pp.phi_k = [45 90 135 180 225 270 315 360]';
+%assumed Nk tuning functions
 pp.K = length(pp.phi_k);
 
 %directions tuning functions 
@@ -54,7 +58,7 @@ pp.K = length(pp.phi_k);
 phi_k = pp.phi_k;
 s = pp.s;
 sTophi_k = bsxfun(@(s,phi_k) s-phi_k,s,phi_k);
-pp.f_k_s = max( 0,cos(pi*(sTophi_k)/180) ).^5;
+pp.f_k_s = max( 0,cos(pi*(sTophi_k)/180) ).^pp.exponent;
 
 %noise shared by channels with same tunings
 %zero mean and all channels have same noise 

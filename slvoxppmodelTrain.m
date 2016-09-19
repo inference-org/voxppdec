@@ -9,11 +9,11 @@
 %         voxel responses
 %
 
-function [W_tr,rho_tr,tau_tr,sigma_tr,pp] = slvoxppmodelTrain(b_train,svec_train)
+function [W_tr,rho_tr,tau_tr,sigma_tr,pp] = slvoxppmodelTrain(b_train,svec_train,pp)
 
 %% average channel responses to vector of stimulus directions
 %Ni instances x 8 stimulus feature - tuned channels
-pp = slsimPPchannels(0);
+pp = slsimPPchannels(0,pp);
 C = pp.f_k_s(:,svec_train)';
 
 %% 1st step : train the model's weights (OLS)

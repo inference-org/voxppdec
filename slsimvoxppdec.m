@@ -33,7 +33,7 @@ save('tau','tau')
 %are to veridical (W). This is also true with the number of repeats of 
 %the directions: the more stimulus directions are repeated and the closer 
 %the weights to veridical.
-W_tr = sltrainPPmodel(b_train,C);
+W_tr = sltrainfmmodel(b_train,C);
 slppPlotWeights(W_tr,W,pp.phi_k);
 
 %% 2nd step : train the model's noise parameters (fminsearch Nelder mead)

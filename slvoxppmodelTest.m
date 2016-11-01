@@ -19,7 +19,7 @@ Nv = size(W_tr,1);
 
 %calculate likelihoods
 %W_tr, rho_tr, tau_tr, sigma_tr, 
-%we first calculate the them from each trial BOLD pattern
+%we first calculate them from each trial BOLD pattern
 %Nv x Nv mu MV gaussian mean 
 mu = W_tr*pp.f_k_s;
 
@@ -42,25 +42,3 @@ for si = 1 : 360
     pb_si(:,si) = mvnpdf(b_test,mu(:,si)',Om);
 end
 pbgivs = bsxfun(@rdivide,pb_si,sum(pb_si,2));
-
-
-% %plot average decoded llhs by directions
-% figure('color','w');
-% cl = linspecer(length(s_disp));
-% for i = 1 : length(s_disp)
-%     
-%     %posterior with sem over direction instance repeats
-%     errorarea(pbgivs(svec == s_disp(i),:)','k',cl(i,:))
-%     
-%     %displayed directions
-%     hold on; plot([s_disp(i) s_disp(i)],...
-%         [min(pb_si_pers(:)) max(pb_si_pers(:))],'color',cl(i,:),...
-%         'linestyle',':','linewidth',2)
-% end
-% box off
-% xlabel('Hypothetical motion directions (deg)')
-% ylabel('Likelihood (probability)')
-% title({'Average LLHs decoded by ppc from V1 bold patterns by directions (colors)',...
-%     '(area is sem over directions repeats)',...
-%     ['rho:' num2str(rho_tr) ' - sigma:' num2str(sigma_tr) ' - mean(tau):' num2str(mean(tau_tr))]})
-% xlim([0 360])

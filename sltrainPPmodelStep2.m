@@ -54,4 +54,5 @@ nu = b' - (W*f_k_s(:,svec) + W*eta);
 
 %get pp model rho,tau and sigma best parameters
 [rho,tau,sigma,nglogl] = slfitRhoTauSigma(eta,nu);
+
 toc

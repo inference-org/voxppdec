@@ -33,7 +33,7 @@ for i = 1 : Nvar
     Nivi = size(instances{i},1);
     
     %number of instances in a fold
-    NinFold = round(Nivi/Nf);
+    NinFold = floor(Nivi/Nf);
     
     %folds indices
     f_sttm = [1 : NinFold : Nivi]';   

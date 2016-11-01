@@ -12,7 +12,7 @@
 %         (directions) to prevent biased training toward the more frequent
 %         feature value.
 %
-%usage :
+% usage:
 %
 %             slfmriInitAnalysisTaskDotDirfMRI05 
 %             d = slfmriGetDBoverSessions(o,varargin); 
@@ -44,7 +44,7 @@ v_u_all = v_u(:,ones(1,size(instancesBal{1},1)))';
 %decode from each train/test fold combinationW_tr_f(:,:,f) = W_tr;
 Nv = size(instances,2);
 Ni = size(instances,1);
-Nk = 8;
+Nk = length(pp.phi_k);
 rho_tr_f = nan(1,Nf);
 tau_tr_f = nan(Nf,Nv);
 sigma_tr_f = nan(1,Nf);
@@ -136,7 +136,7 @@ end
 box off
 xlabel('Hypothetical motion directions (deg)')
 ylabel('Likelihood (probability)')
-title({'Average LLHs decoded by cross-validated ppc from V1 bold patterns by directions (colors)',...
+title({'Average LLHs decoded by cross-validated ppc from bold patterns by directions (colors)',...
     '(area is sem over directions repeats)',...
     ['mean rho:' num2str(mean(rho_tr_f)) ' - mean sigma:' num2str(mean(sigma_tr_f)) ' - mean(tau):' num2str(mean(mean(tau_tr_f)))]})
 xlim([0 360])

@@ -48,7 +48,10 @@ SIGMA = rho*(tau*tau')+ (1-rho)*times(eye(Nv,Nv),tau*tau');
 %matrix.
 [~,err] = cholcov(SIGMA,0);
 if err~=0
-    fprintf('%s \n', 'Sigma was not a valid covariance matrix')
+    fprintf('%s \n', 'Sigma was not a valid covariance matrix: not >0 definite or symmetric')
+    nglogl = inf; return
+elseif det(SIGMA)==0
+    fprintf('%s \n', 'Sigma is singular.')    
     nglogl = inf; return
 end
 p_nu = mvnpdf(nu',zeros(Ni,Nv),SIGMA);

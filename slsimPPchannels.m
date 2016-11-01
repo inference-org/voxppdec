@@ -11,7 +11,7 @@
 %
 %usage :
 %
-%       [f_k_s, f_k_s_noisy] = slsimPPchannels(0.5)
+%       [f_k_s, f_k_s_noisy] = slsimPPchannels(0.5,pp)
 %
 %inputs:
 %

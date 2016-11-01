@@ -40,8 +40,8 @@ options.OutputFcn = slrecordfit;
 %fp = fp - 20;
 %get back unscaled values
 fp(1) = fp(1) - 2*100;
-fp0(2:Nv+1) = fp0(2:Nv+1) - 1.4*100;
-fp0(Nv+2) =  fp0(Nv+2) - 1.8*100;
+fp(2:Nv+1) = fp(2:Nv+1) - 1.4*100;
+fp(Nv+2) =  fp(Nv+2) - 1.8*100;
 
 
 %plot logl convergence

@@ -10,9 +10,9 @@
 %         representation of the prior mean.
 %         
 
-
-% set train (prior 225) and test (prior 135) datasets
-%load prior 225 dataset for training
+% set train (uniform prior) and test (prior 125) datasets
+%load uniform prior dataset
+myrootpath = 
 cd ~/Dropbox/voxppRes/data/V1
 load ClassifStckSessmyRandomDir_V1
 cd ~/Dropbox/voxppRes/

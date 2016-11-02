@@ -4,15 +4,17 @@
 %
 %
 %author : steeve laquitaine
-%purpose: train the parameters of a probabilistic population model of 
-%         voxel responses
+%  date : 161101
+%purpose: decode likelihood of stimulus feature (e.g., motion directions) 
+%         from Ni instances by Nv voxels responses with model parameters
+%         W_tr, rho_tr,tau_tr,sigma_tr
 %
 % usage :
 %
-%       pbgivs = slvoxppmodelTest(b_test)
+%       LLHs = slvoxppmodelTest(b_test)
 
 
-function pbgivs = slvoxppmodelTest(b_test,W_tr,rho_tr,tau_tr,sigma_tr,pp)
+function LLHs = slvoxppmodelTest(b_test,W_tr,rho_tr,tau_tr,sigma_tr,pp)
 
 %number of data feature (voxels)
 Nv = size(W_tr,1);
@@ -41,4 +43,4 @@ end
 for si = 1 : 360
     pb_si(:,si) = mvnpdf(b_test,mu(:,si)',Om);
 end
-pbgivs = bsxfun(@rdivide,pb_si,sum(pb_si,2));
+LLHs = bsxfun(@rdivide,pb_si,sum(pb_si,2));

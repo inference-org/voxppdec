@@ -12,7 +12,6 @@
 
 % set train (uniform prior) and test (prior 125) datasets
 %load uniform prior dataset
-myrootpath = 
 cd ~/Dropbox/voxppRes/data/V1
 load ClassifStckSessmyRandomDir_V1
 cd ~/Dropbox/voxppRes/
